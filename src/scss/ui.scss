@@ -1,0 +1,92 @@
+body {
+    font-family: $fontFamily;
+}
+.container {
+    margin: 0 auto;
+    max-width: $maxWidthContainer + 20px;
+    padding: 0 10px;
+}
+
+.card {
+    position: relative;
+    height: 60vh;
+    border-radius: 70px;
+    background: url(../img/2022.svg) repeat-y 0 -40px / contain $main-color;
+}
+.arrow {
+    z-index: 100;
+    position: absolute;
+    right: 0px;
+    @include respValue('bottom', 50, 25, 1);
+    left: 0px;
+    @include respValue('width', 50, 35, 1);
+    margin: 0 auto;
+    animation: fly 3s ease;
+    animation-iteration-count: infinite;
+}
+@keyframes fly {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+.title {
+    @include respValue('font-size', 48, 24, 1);
+    font-weight: bold;
+    color: $main-color;
+    margin-bottom: 40px;
+}
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes fadeUp {
+    0% {
+        transform: translateY(30%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes slideRight {
+    0% {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.fadeInUp {
+    animation: fadeUp 1s ease;
+}
+.slideInUp {
+    animation: slideUp 1s ease;
+}
+.slideInDown {
+    animation: slideDown 1s ease;
+}
+.slideInRight {
+    animation: slideRight 1s ease;
+}
+.hide {
+    overflow: hidden;
+}

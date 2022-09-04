@@ -1,0 +1,397 @@
+html,
+body,
+main {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-size: 14px;
+    color: #000;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: $main-color;
+}
+
+.main {
+    overflow: visible;
+    box-sizing: border-box;
+    &__card {
+        position: relative;
+        padding-top: 80px;
+    }
+    &__img {
+        position: absolute;
+        top: -12vh;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        height: 72vh;
+        margin: 0 auto;
+    }
+    &__container {
+        flex: 1 1 calc(100% - 20px);
+        width: calc(100% - 20px);
+    }
+    &__name {
+        color: $main-color;
+        text-align: left;
+        padding: 10px;
+        padding-left: 60px;
+    }
+    &__title {
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        font-size: 52px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 15px;
+    }
+    &__subtitle {
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        font-size: 32px;
+        color: #ffffff;
+    }
+}
+
+.about {
+    overflow: visible;
+    box-sizing: border-box;
+    &__card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        @media (min-width: 640px) {
+            padding-left: 30%;
+        }
+    }
+    &__img {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        height: 90%;
+    }
+    &__container {
+        flex: 1 1 calc(100% - 20px);
+        width: calc(100% - 20px);
+    }
+    &__quote {
+        display: block;
+        position: relative;
+        z-index: 2;
+        color: #ffffff;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+    &__title {
+    }
+}
+.projectsSwiper {
+    overflow: visible;
+    padding-bottom: 30px;
+}
+.projects {
+    &__title {
+        margin-bottom: 30px;
+    }
+    &__container {
+        flex: 0 0 calc(100% - 20px);
+        width: calc(100% - 20px);
+    }
+    & .swiper-slide {
+        transition: transform ease 0.3s;
+        transform: scale(0.7);
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        object-fit: cover;
+        object-position: top;
+        opacity: 0;
+        transition: opacity ease 1s;
+        &[src] {
+            opacity: 1;
+        }
+    }
+    & .swiper-slide-active {
+        transform: scale(1);
+        .projects__caption {
+            opacity: 1;
+        }
+    }
+    &__figure {
+        @include respValue('font-size', 42, 22, 1);
+        padding-top: 1em;
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        overflow: hidden;
+    }
+    &__caption {
+        text-align: left;
+        position: absolute;
+        top: 0;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        text-transform: capitalize;
+        opacity: 0;
+        transition: opacity ease 0.3s;
+        div {
+            overflow: hidden;
+            p {
+                color: $main-color;
+            }
+            &:last-child {
+                p {
+                    color: #ffffff;
+                    background: linear-gradient(
+                        180deg,
+                        rgba(0, 0, 0, 0.3) 0%,
+                        rgba(0, 0, 0, 0.3) 70%,
+                        rgba(0, 0, 0, 0) 100%
+                    );
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
+.biography {
+    &__title {
+        margin-bottom: 70px;
+    }
+    &__container {
+        flex: 1 1 calc(100% - 20px);
+        width: calc(100% - 20px);
+        padding-bottom: 70px;
+    }
+    & .swiper {
+        @media (max-width: 640px) {
+            overflow: visible;
+        }
+    }
+    & .swiper-slide {
+        transition: transform ease 0.3s;
+        transform: scale(0.7);
+    }
+    & .swiper-slide-active {
+        .biography__pic {
+            fill: $accent-color;
+        }
+    }
+    &__img {
+        display: block;
+        position: relative;
+        width: 60%;
+        margin: 0 auto;
+    }
+    & .swiper-slide-active {
+        transform: scale(1);
+        .biography__caption {
+            opacity: 1;
+        }
+    }
+    &__caption {
+        margin-top: 10px;
+        transition: opacity ease 0.3s;
+        @include respValue('font-size', 24, 18, 1);
+        font-weight: bold;
+        color: $main-color;
+        opacity: 0;
+        span {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+    & .swiper-button-next {
+    }
+}
+
+.contacts {
+    overflow: visible;
+    box-sizing: border-box;
+    &__card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        @include respValue('padding', 40, 20, 1);
+        flex-direction: column;
+    }
+    &__container {
+        flex: 1 1 calc(100% - 20px);
+        width: calc(100% - 20px);
+    }
+    &__list {
+        flex: 1 1 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    &__name {
+        @include respValue('margin-bottom', 60, 25, 1);
+        @include respValue('font-size', 46, 32, 1);
+        color: #ffffff;
+        font-weight: bold;
+    }
+    &__link {
+        display: block;
+        @include respValue('font-size', 18, 14, 1);
+        transition: color ease 0.3s;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 10px;
+        text-decoration: none;
+        svg {
+            transition: fill ease 0.3s;
+            width: 2em;
+            flex: 0 0 2em;
+            fill: #ffffff;
+            margin-right: 10px;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $accent-color;
+                svg {
+                    fill: $accent-color;
+                }
+            }
+        }
+    }
+}
+
+.possibility {
+    overflow: visible;
+    box-sizing: border-box;
+    &__card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        @media (min-width: 640px) {
+            padding-right: 30%;
+        }
+    }
+    &__img {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        height: 100%;
+    }
+    &__container {
+        flex: 1 1 calc(100% - 20px);
+        width: calc(100% - 20px);
+        margin-bottom: 50px;
+    }
+    &__quote {
+        display: block;
+        position: relative;
+        z-index: 2;
+        color: #ffffff;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+    &__title {
+    }
+}
+.skills {
+    overflow: visible;
+    box-sizing: border-box;
+    &__container {
+        flex: 1 1 calc(100% - 20px);
+        width: calc(100% - 20px);
+    }
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 50px;
+    }
+    &__item {
+        cursor: pointer;
+        @include respValue('width', 130, 60, 1);
+        @include respValue('height', 130, 60, 1);
+        background-color: $main-color;
+        @include respValue('border-radius', 30, 10, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include respValue('font-size', 46, 32, 1);
+        font-weight: bold;
+        color: #ffffff;
+        transition: transform ease 0.3s;
+        transform: scale(0.7);
+        &:not(.active) {
+            animation: pulse 5s ease;
+            animation-iteration-count: infinite;
+        }
+        &.active {
+            transform: scale(1);
+            color: $accent-color;
+        }
+    }
+    &__description {
+        position: relative;
+        @include respValue('font-size', 24, 18, 1);
+        font-weight: bold;
+        color: $main-color;
+        height: 20vh;
+        p {
+            transition: opacity ease 0.8s;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            visibility: hidden;
+        }
+        & .active {
+            visibility: visible;
+            animation: slideRight 1s ease;
+        }
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
